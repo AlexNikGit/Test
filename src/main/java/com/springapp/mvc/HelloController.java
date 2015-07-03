@@ -1,16 +1,23 @@
 package com.springapp.mvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,10 +48,36 @@ public class HelloController {
 		Source model_1 = new StreamSource(new File(srcFilePath_1));
 		modelMap.put("ctxHeader", model_1);
 
+
 		ModelAndView mvContext = new ModelAndView( "DynGenTest", modelMap );	// в параметре передаётся название статического аттрибута в значении которого передаётся шаблон
 
 		System.out.println( "Старница динамические сформирована. " );
 
 		return mvContext;
+	}
+	/*@ResponseBody
+	public String sayHello() {
+		return "FuckOUT";
+	}*/
+
+
+	// Процедура возврата изображения контроллером
+	@RequestMapping(value="/img/menu_border.gif")
+	@ResponseBody
+	public HttpEntity<byte[]> sayHello( HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println( "Запрашиваемая картинка:   " +  request.getRequestURI( ) );
+		FileSystemResource resource = new FileSystemResource("/mnt/data/Develop/AppData/DATA/img/menu_border.gif");
+		BufferedReader bufferedReader = null;
+		HttpHeaders headers = new HttpHeaders();
+		byte[] image = new byte[(int) resource.getFile().length()];
+		try {
+			resource.getInputStream().read(image);
+			headers.setContentType(MediaType.IMAGE_GIF);
+			headers.setContentLength(image.length);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return new HttpEntity<byte[]>(image, headers);
 	}
 }

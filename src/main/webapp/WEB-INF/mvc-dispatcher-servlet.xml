@@ -20,7 +20,6 @@
             </array>
         </property>
     </bean>
-
     <bean id="XSLTRes" class="com.springapp.mvc.XSLTResourceInjection" />
 
     <mvc:annotation-driven /> <!-- необходимо включать при использовании mvc:resources -->

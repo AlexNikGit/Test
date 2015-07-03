@@ -27,8 +27,7 @@ public class XSLTGenView extends XsltView {
 			/* Если не переопределять эту процедуру, то необходимо реализовать собственный контекст приложения (переопределить ApplicationContext)
 			 * и далее с помощью @Bean(name="conversionService") public ConversionService getConversionService(){...} определить конвертор Converter<String, Resource> */
 
-            //XSLTResourceInjection loaderXSLTDynRes = getApplicationContext().getBean( "XSLTRes", XSLTResourceInjection.class );	// ПРАВИЛЬНОЕ ИСПОЛЬЗОВАНИЕ Bean-а
-            XSLTResourceInjection loaderXSLTDynRes = (XSLTResourceInjection) getApplicationContext().getBean("XSLTRes");
+            XSLTResourceInjection loaderXSLTDynRes = getApplicationContext().getBean( "XSLTRes", XSLTResourceInjection.class );     // ПРАВИЛЬНОЕ ИСПОЛЬЗОВАНИЕ Bean-а
             Resource resource = loaderXSLTDynRes.getResource( url );
 
             //Resource resource = (Resource) getApplicationContext().getBean( url );

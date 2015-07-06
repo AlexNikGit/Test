@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package com.jntsys;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;

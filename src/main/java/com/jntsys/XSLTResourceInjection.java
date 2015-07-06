@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package com.jntsys;
 
 import java.io.File;
 import java.io.StringReader;

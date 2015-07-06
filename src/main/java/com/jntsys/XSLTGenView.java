@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package com.jntsys;
 
 import org.springframework.web.servlet.view.xslt.XsltView;
 import org.springframework.core.io.Resource;

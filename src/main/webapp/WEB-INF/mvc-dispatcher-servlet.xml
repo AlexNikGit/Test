@@ -12,14 +12,14 @@
     <context:component-scan base-package="com.jntsys"/>
 
     <bean class="org.springframework.web.servlet.view.xslt.XsltViewResolver">
-        <property name="viewClass" value="com.jntsys.XSLTGenView" />
+        <property name="viewClass" value="jntsys.XSLTGenView" />
         <property name="viewNames">
             <array>
                 <value>DynGenTest</value>
             </array>
         </property>
     </bean>
-    <bean id="XSLTRes" class="com.jntsys.XSLTResourceInjection" />
+    <bean id="XSLTRes" class="jntsys.XSLTResourceInjection" />
 
     <mvc:annotation-driven /> <!-- необходимо включать при использовании mvc:resources -->
 

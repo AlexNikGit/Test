@@ -1,4 +1,4 @@
-package com.jntsys.view;
+package jntsys.view;
 
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 
@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by alex_nik on 06.07.15.
  */
-public class XProcView extends AbstractUrlBasedView {
+public abstract class XProcView extends AbstractUrlBasedView {
 
     @Override
     protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response)

@@ -1,4 +1,4 @@
-package com.jntsys.pipline;
+package jntsys.pipeline;
 
 /**
  * Created by alex_nik on 06.07.15.

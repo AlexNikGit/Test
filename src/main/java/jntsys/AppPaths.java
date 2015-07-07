@@ -1,4 +1,4 @@
-package com.jntsys;
+package jntsys;
 
 import java.util.Properties;
 

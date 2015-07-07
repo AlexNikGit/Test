@@ -1,6 +1,4 @@
-package com.jntsys.pipline;
-
-import com.jntsys.pipline.Pipeline;
+package jntsys.pipeline;
 
 /**
  * Основной класс ядра конвейера. ...

@@ -1,4 +1,4 @@
-package com.jntsys.pipline.port;
+package jntsys.pipeline.port;
 
 /**
  * Created by alex_nik on 06.07.15.

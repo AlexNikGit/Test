@@ -1,4 +1,4 @@
-package com.jntsys;
+package jntsys;
 
 import java.io.File;
 import java.io.StringReader;

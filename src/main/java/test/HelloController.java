@@ -1,4 +1,4 @@
-package jntsys;
+package test;
 
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpEntity;

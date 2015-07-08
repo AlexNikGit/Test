@@ -1,4 +1,4 @@
-package jntsys.view;
+package test.view;
 
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 

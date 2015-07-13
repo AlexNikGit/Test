@@ -3,28 +3,68 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="119.0" y="80.0">test.view.XProcBaseView</node>
-    <node x="68.75" y="0.0">test.view.XProcView</node>
-    <node x="0.0" y="80.0">test.view.XProcHView</node>
+    <node x="18.0" y="240.0">test.view.BaseWebView</node>
+    <node x="312.75" y="80.0">test.view.generator.WebCreatorImpl</node>
+    <node x="127.75" y="0.0">test.view.generator.GenEx</node>
+    <node x="115.25" y="80.0">test.view.generator.GenExImpl</node>
+    <node x="388.0" y="160.0">test.view.generator.CSSCreator</node>
+    <node x="260.0" y="160.0">test.view.generator.HTMLCreator</node>
+    <node x="114.75" y="160.0">test.view.ViewGenEx</node>
+    <node x="0.0" y="343.0">test.view.HWebView</node>
+    <node x="11.75" y="160.0">test.view.WebView</node>
+    <node x="325.25" y="0.0">test.view.generator.WebCreator</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="test.view.XProcBaseView" target="test.view.XProcView">
+    <edge source="test.view.generator.GenExImpl" target="test.view.generator.GenEx">
       <point x="0.0" y="-15.0" />
-      <point x="178.0" y="55.0" />
-      <point x="136.25" y="55.0" />
-      <point x="22.5" y="15.0" />
+      <point x="0.0" y="15.0" />
     </edge>
-    <edge source="test.view.XProcHView" target="test.view.XProcView">
+    <edge source="test.view.generator.HTMLCreator" target="test.view.generator.WebCreatorImpl">
       <point x="0.0" y="-15.0" />
-      <point x="49.5" y="55.0" />
-      <point x="91.25" y="55.0" />
-      <point x="-22.5" y="15.0" />
+      <point x="314.0" y="135.0" />
+      <point x="344.0" y="135.0" />
+      <point x="-31.25" y="15.0" />
+    </edge>
+    <edge source="test.view.BaseWebView" target="test.view.WebView">
+      <point x="-44.75" y="-26.5" />
+      <point x="62.75" y="215.0" />
+      <point x="53.25" y="215.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="test.view.generator.CSSCreator" target="test.view.generator.WebCreatorImpl">
+      <point x="0.0" y="-15.0" />
+      <point x="436.5" y="135.0" />
+      <point x="406.5" y="135.0" />
+      <point x="31.25" y="15.0" />
+    </edge>
+    <edge source="test.view.ViewGenEx" target="test.view.generator.GenExImpl">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="test.view.generator.WebCreatorImpl" target="test.view.generator.WebCreator">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="test.view.BaseWebView" target="test.view.ViewGenEx">
+      <point x="44.75" y="-26.5" />
+      <point x="152.25" y="215.0" />
+      <point x="161.75" y="215.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="test.view.HWebView" target="test.view.BaseWebView">
+      <point x="0.0" y="-50.5" />
+      <point x="0.0" y="26.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="118.5" y="55.0" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="242.5" y="222.0" />
   <SelectedNodes />
-  <Categories />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
 </Diagram>

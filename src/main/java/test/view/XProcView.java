@@ -1,7 +1,0 @@
-package test.view;
-
-/**
- * Created by alex_nik on 10.07.15.
- */
-public interface XProcView {
-}

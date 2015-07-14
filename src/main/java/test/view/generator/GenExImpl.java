@@ -10,14 +10,14 @@ package test.view.generator;
  * импорта/экспорта конвейера (PIEViewConn)!
  */
 public abstract class GenExImpl implements GenEx {
-    private WebCreator webCreator;      // нужно выбирать интерфейс к которому будет выводится конкретная реализация
+    private WebGenerator webGenerator;      // нужно выбирать интерфейс к которому будет выводится конкретная реализация
 
     protected GenExImpl( ) { }
-    protected GenExImpl( WebCreator web_creator ) {
-        this.webCreator = web_creator;
+    protected GenExImpl( WebGenerator web_creator ) {
+        this.webGenerator = web_creator;
     }
 
-    public void setWebCreator( WebCreator web_creator ) {
-        this.webCreator = web_creator;
+    public void setWebGenerator(WebGenerator web_creator) {
+        this.webGenerator = web_creator;
     }
 }

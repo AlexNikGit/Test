@@ -4,15 +4,15 @@
   <OriginalElement />
   <nodes>
     <node x="0.0" y="356.0">test.view.BaseWebView</node>
-    <node x="310.25" y="126.5">test.view.generator.WebCreatorImpl</node>
+    <node x="276.0" y="0.0">test.view.generator.WebGenerator</node>
     <node x="88.5" y="11.5">test.view.generator.GenEx</node>
     <node x="81.25" y="103.0">test.view.generator.GenExImpl</node>
-    <node x="389.25" y="253.0">test.view.generator.HTMLGen</node>
-    <node x="231.25" y="253.0">test.view.generator.CSSGen</node>
-    <node x="116.75000000000001" y="264.5">test.view.ViewGenEx</node>
+    <node x="231.5" y="253.0">test.view.generator.HTMLGen</node>
+    <node x="389.5" y="253.0">test.view.generator.CSSGen</node>
+    <node x="309.5" y="126.5">test.view.generator.WebGeneratorImpl</node>
+    <node x="116.75" y="264.5">test.view.ViewGenEx</node>
     <node x="2.0" y="506.0">test.view.HWebView</node>
     <node x="13.75" y="264.5">test.view.WebView</node>
-    <node x="275.75" y="0.0">test.view.generator.WebCreator</node>
   </nodes>
   <notes />
   <edges>
@@ -20,39 +20,39 @@
       <point x="-41.25" y="-50.0" />
       <point x="0.0" y="15.0" />
     </edge>
+    <edge source="test.view.generator.WebGeneratorImpl" target="test.view.generator.WebGenerator">
+      <point x="0.0" y="-26.5" />
+      <point x="34.5" y="26.5" />
+    </edge>
     <edge source="test.view.BaseWebView" target="test.view.WebView">
       <point x="-54.75" y="-50.0" />
       <point x="0.0" y="15.0" />
     </edge>
-    <edge source="test.view.generator.GenExImpl" target="test.view.generator.WebCreator">
-      <point x="41.25" y="-50.0" />
-      <point x="205.0" y="78.0" />
-      <point x="310.25" y="78.0" />
-      <point x="-34.5" y="26.5" />
+    <edge source="test.view.generator.HTMLGen" target="test.view.generator.WebGeneratorImpl">
+      <point x="0.0" y="-26.5" />
+      <point x="300.5" y="228.0" />
+      <point x="344.5" y="228.0" />
+      <point x="-35.0" y="26.5" />
     </edge>
     <edge source="test.view.ViewGenEx" target="test.view.generator.GenExImpl">
       <point x="0.0" y="-15.0" />
       <point x="0.0" y="50.0" />
     </edge>
-    <edge source="test.view.generator.WebCreatorImpl" target="test.view.generator.WebCreator">
+    <edge source="test.view.generator.GenExImpl" target="test.view.generator.WebGenerator">
+      <point x="41.25" y="-50.0" />
+      <point x="205.0" y="78.0" />
+      <point x="310.5" y="78.0" />
+      <point x="-34.5" y="26.5" />
+    </edge>
+    <edge source="test.view.generator.CSSGen" target="test.view.generator.WebGeneratorImpl">
       <point x="0.0" y="-26.5" />
-      <point x="34.5" y="26.5" />
+      <point x="458.5" y="228.0" />
+      <point x="414.5" y="228.0" />
+      <point x="35.0" y="26.5" />
     </edge>
     <edge source="test.view.BaseWebView" target="test.view.ViewGenEx">
       <point x="54.75" y="-50.0" />
       <point x="0.0" y="15.0" />
-    </edge>
-    <edge source="test.view.generator.HTMLGen" target="test.view.generator.WebCreatorImpl">
-      <point x="0.0" y="-26.5" />
-      <point x="458.25" y="228.0" />
-      <point x="413.75" y="228.0" />
-      <point x="34.5" y="26.5" />
-    </edge>
-    <edge source="test.view.generator.CSSGen" target="test.view.generator.WebCreatorImpl">
-      <point x="0.0" y="-26.5" />
-      <point x="300.25" y="228.0" />
-      <point x="344.75" y="228.0" />
-      <point x="-34.5" y="26.5" />
     </edge>
     <edge source="test.view.HWebView" target="test.view.BaseWebView">
       <point x="53.75" y="-50.5" />

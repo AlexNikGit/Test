@@ -8,4 +8,5 @@ import test.view.generator.GenExImpl;
  * В дальнейшем этот класс необходимо заменить на класс для соединения с портами конвейера (XPwVConnector)!
  */
 public class ViewGenEx extends GenExImpl {
+
 }

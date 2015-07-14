@@ -20,6 +20,7 @@
         </property>
     </bean>
     <bean id="XSLTRes" class="test.XSLTResourceInjection" />
+    <bean id="ViewGenEx" class="test.view.ViewGenEx" />
 
     <mvc:annotation-driven /> <!-- необходимо включать при использовании mvc:resources -->
 

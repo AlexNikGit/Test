@@ -17,7 +17,7 @@ public class HWebView extends AbstractUrlBasedView {
     private BaseWebView wvProc;        // Web View Processor
 
     public HWebView() {
-        wvProc = getApplicationContext().getBean( "XSLTRes", BaseWebView.class );
+        wvProc = new BaseWebView( );
     }
 
     @Override

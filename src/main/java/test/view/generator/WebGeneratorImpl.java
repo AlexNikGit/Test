@@ -1,7 +1,8 @@
 package test.view.generator;
 
 /**
- * Created by alex_nik on 09.07.15.
+ *  Все конечные реализации генераторов должны быть в единственном экземпляре (возможно даже класс-одиночка)
+ *  и подключаться при помощи Bean
  */
 public abstract class WebGeneratorImpl implements WebGenerator {
     public abstract void generate( );

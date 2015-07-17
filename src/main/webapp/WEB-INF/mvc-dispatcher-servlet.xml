@@ -22,6 +22,9 @@
     <bean id="XSLTRes" class="test.XSLTResourceInjection" />
     <bean id="ViewGenEx" class="test.view.ViewGenEx" />
 
+    <bean id="HSkelGenerator" class="test.view.generator.HSkelGen" />
+    <bean id="CStyleGenerator" class="test.view.generator.CStyleGen" />
+
     <mvc:annotation-driven /> <!-- необходимо включать при использовании mvc:resources -->
 
     <mvc:resources mapping="/css/**" location="file:/mnt/data/Develop/AppData/DATA/css/" />

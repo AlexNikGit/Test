@@ -3,21 +3,21 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="0.0" y="356.0">test.view.BaseWebView</node>
-    <node x="276.0" y="0.0">test.view.generator.WebGenerator</node>
-    <node x="88.5" y="11.5">test.view.generator.GenEx</node>
-    <node x="81.25" y="103.0">test.view.generator.GenExImpl</node>
-    <node x="231.5" y="253.0">test.view.generator.HTMLGen</node>
-    <node x="389.5" y="253.0">test.view.generator.CSSGen</node>
-    <node x="309.5" y="126.5">test.view.generator.WebGeneratorImpl</node>
-    <node x="116.75" y="264.5">test.view.ViewGenEx</node>
-    <node x="2.0" y="506.0">test.view.HWebView</node>
-    <node x="13.75" y="264.5">test.view.WebView</node>
+    <node x="22.25" y="473.0">test.view.BaseWebView</node>
+    <node x="578.5" y="358.0">test.view.generator.HSkelGen</node>
+    <node x="465.0" y="0.0">test.view.generator.WebGenerator</node>
+    <node x="102.0" y="11.5">test.view.generator.GenEx</node>
+    <node x="30.0" y="103.0">test.view.generator.GenExImpl</node>
+    <node x="420.5" y="358.0">test.view.generator.CStyleGen</node>
+    <node x="498.5" y="173.0">test.view.generator.WebGeneratorImpl</node>
+    <node x="103.0" y="346.0">test.view.ViewGenEx</node>
+    <node x="34.25" y="646.0">test.view.HWebView</node>
+    <node x="0.0" y="369.5">test.view.WebView</node>
   </nodes>
   <notes />
   <edges>
     <edge source="test.view.generator.GenExImpl" target="test.view.generator.GenEx">
-      <point x="-41.25" y="-50.0" />
+      <point x="-106.0" y="-96.5" />
       <point x="0.0" y="15.0" />
     </edge>
     <edge source="test.view.generator.WebGeneratorImpl" target="test.view.generator.WebGenerator">
@@ -25,49 +25,56 @@
       <point x="34.5" y="26.5" />
     </edge>
     <edge source="test.view.BaseWebView" target="test.view.WebView">
-      <point x="-54.75" y="-50.0" />
+      <point x="-59.75" y="-61.5" />
+      <point x="82.0" y="448.0" />
+      <point x="41.5" y="448.0" />
       <point x="0.0" y="15.0" />
     </edge>
-    <edge source="test.view.generator.HTMLGen" target="test.view.generator.WebGeneratorImpl">
+    <edge source="test.view.ViewGenEx" target="test.view.generator.GenExImpl">
+      <point x="0.0" y="-38.5" />
+      <point x="0.0" y="96.5" />
+    </edge>
+    <edge source="test.view.generator.CStyleGen" target="test.view.generator.WebGeneratorImpl">
       <point x="0.0" y="-26.5" />
-      <point x="300.5" y="228.0" />
-      <point x="344.5" y="228.0" />
+      <point x="489.5" y="321.0" />
+      <point x="533.5" y="321.0" />
       <point x="-35.0" y="26.5" />
     </edge>
-    <edge source="test.view.ViewGenEx" target="test.view.generator.GenExImpl">
-      <point x="0.0" y="-15.0" />
-      <point x="0.0" y="50.0" />
-    </edge>
     <edge source="test.view.generator.GenExImpl" target="test.view.generator.WebGenerator">
-      <point x="41.25" y="-50.0" />
-      <point x="205.0" y="78.0" />
-      <point x="310.5" y="78.0" />
+      <point x="106.0" y="-96.5" />
+      <point x="348.0" y="78.0" />
+      <point x="499.5" y="78.0" />
       <point x="-34.5" y="26.5" />
     </edge>
-    <edge source="test.view.generator.CSSGen" target="test.view.generator.WebGeneratorImpl">
+    <edge source="test.view.generator.HSkelGen" target="test.view.generator.WebGeneratorImpl">
       <point x="0.0" y="-26.5" />
-      <point x="458.5" y="228.0" />
-      <point x="414.5" y="228.0" />
+      <point x="647.5" y="321.0" />
+      <point x="603.5" y="321.0" />
       <point x="35.0" y="26.5" />
     </edge>
     <edge source="test.view.BaseWebView" target="test.view.ViewGenEx">
-      <point x="54.75" y="-50.0" />
-      <point x="0.0" y="15.0" />
+      <point x="59.75" y="-61.5" />
+      <point x="201.5" y="448.0" />
+      <point x="242.0" y="448.0" />
+      <point x="0.0" y="38.5" />
     </edge>
     <edge source="test.view.HWebView" target="test.view.BaseWebView">
-      <point x="53.75" y="-50.5" />
-      <point x="54.75" y="50.0" />
+      <point x="-53.75" y="-50.5" />
+      <point x="88.0" y="621.0" />
+      <point x="82.0" y="621.0" />
+      <point x="-59.75" y="61.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.8803827751196173" x="264.0" y="303.5" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="358.5" y="373.5" />
   <SelectedNodes>
-    <node>test.view.generator.GenExImpl</node>
+    <node>test.view.ViewGenEx</node>
   </SelectedNodes>
   <Categories>
     <Category>Constructors</Category>
     <Category>Fields</Category>
     <Category>Methods</Category>
     <Category>Properties</Category>
+    <Category>Inner Classes</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>

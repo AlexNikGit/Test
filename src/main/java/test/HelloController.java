@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import test.view.BaseWebView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,9 +21,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 @Controller
 public class HelloController {
@@ -53,10 +53,6 @@ public class HelloController {
 
 		return mvContext;
 	}
-	/*@ResponseBody
-	public String sayHello() {
-		return "FuckOUT";
-	}*/
 
 
 	// Процедура возврата изображения контроллером
@@ -77,5 +73,13 @@ public class HelloController {
 			e.printStackTrace();
 		}
 		return new HttpEntity<byte[]>(image, headers);
+	}
+
+	@RequestMapping(value="/html/*")
+	@ResponseBody
+	public String genHTML( ) {
+		private BaseWebView wvProc;
+
+		return "FuckOUT";
 	}
 }

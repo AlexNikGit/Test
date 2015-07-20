@@ -7,7 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import test.view.BaseWebView;
@@ -16,8 +15,8 @@ import test.view.WebView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +33,7 @@ public class HelloController {
 	 * либо объект представления может быть определен непосредственно в ModelAndView если необходима тонкая настрой представления.
 	 * Модель представляем собой Map, позволяющую многократное добавление объектов модели определяя их строковым идентификатором. Если указано
 	 * использование определённой модели (setSourceKey) то будет использоваться только она, иначе буду использоваться все добавленные.  */
-	@RequestMapping(value="/*")
+	/*@RequestMapping(value="*//*")
 	public ModelAndView mvDynGenTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		System.out.println( "Начало динамического создания страницы ... " );
@@ -52,7 +51,7 @@ public class HelloController {
 		System.out.println( "Старница динамические сформирована. " );
 
 		return mvContext;
-	}
+	}*/
 
 
 	// Процедура возврата изображения контроллером
@@ -75,7 +74,7 @@ public class HelloController {
 		return new HttpEntity<byte[]>(image, headers);
 	}
 
-	@RequestMapping(value="/html/*", produces = "text/plain; charset=utf-8")
+	@RequestMapping(value="/*", produces = "text/plain; charset=utf-8")
 	@ResponseBody
 	public String genHTML( HttpServletRequest request, HttpServletResponse response ) {
 		WebView wvProc;

@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.transform.Source;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,16 +76,21 @@ public class HelloController {
 		return new HttpEntity<byte[]>(image, headers);
 	}
 
-	@RequestMapping(value="/*", produces = "text/plain; charset=utf-8")
+	@RequestMapping(value="/*", produces = "text/html; charset=utf-8")
 	@ResponseBody
-	public String genHTML( HttpServletRequest request, HttpServletResponse response ) {
+	public HttpEntity<String> genHTML( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 		WebView wvProc;
-		StringBuffer buf = new StringBuffer( "Выходное значение:   " );
+		StringBuffer buf = new StringBuffer( /*"Выходное значение:   "*/ );
 
 		wvProc = new BaseWebView( );
 		wvProc.init();
 		wvProc.getHTMLSkeleton(request.getRequestURI(), buf);
 
-		return buf.toString( );
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(new MediaType("text", "html", Charset.forName("UTF-8"))));
+
+		System.out.println( "Отправлено клиенту: " + buf.toString( ) );
+
+		return new HttpEntity<String>(buf.toString( ), headers);
 	}
 }

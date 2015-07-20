@@ -1,9 +1,10 @@
 package test;
 
-import java.io.File;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.net.MalformedURLException;
+import org.springframework.context.ResourceLoaderAware;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.core.io.UrlResource;
 
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -11,12 +12,10 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-
-import org.springframework.context.ResourceLoaderAware;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.core.io.UrlResource;
+import java.io.File;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.net.MalformedURLException;
 
 public class XSLTResourceInjection implements ResourceLoaderAware {
 

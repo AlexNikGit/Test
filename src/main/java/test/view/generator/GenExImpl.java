@@ -3,6 +3,7 @@ package test.view.generator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**   View Generator Exchange
@@ -21,26 +22,27 @@ import java.util.Map;
  */
 public abstract class GenExImpl implements GenEx {
     private Map<String, WebGenerator> webGenerators;    // карта генераторов
-    private Map<String, Object> AllBeffers; // в качестве Object будет использоваться структура для буферов. на каждую сессию свой набор буфферов
+    /*private Map<String, Object> AllBeffers;*/ // в качестве Object будет использоваться структура для буферов. на каждую сессию свой набор буфферов
 
     @Autowired
     private ApplicationContext applicationContext;
 
     protected GenExImpl( ) {
-        this.webGenerators.clear( );
-    }
-
-    private void setWebGenerator(WebGenerator web_creator) {
-        this.webGenerators.put("HTML", web_creator);
+        this.webGenerators = new HashMap<String, WebGenerator>( );
     }
 
     public void init( ) {
-        //this.setWebGenerator(new HSkelGen());         // заменить на использование Bean
-        this.setWebGenerator( applicationContext.getBean("HSkelGenerator", HSkelGen.class) );
+        //WebGenerator web_generator = applicationContext.getBean("HSkelGenerator", HSkelGen.class);
+        WebGenerator web_generator = new HSkelGen( );
+        this.webGenerators.put("HTML", web_generator);
     }
 
-   /* private void genHTML( String input, String result ) {}
+    public void genHTML( String input, StringBuffer result ) {
+        this.webGenerators.get("HTML").generate( input, result);
+    }
+
+   /*
     private void genCSS( String input, String result ) {}
-    public void genContext( ) {}*/
-    protected abstract void setOutBuffer(  );
+    public void genContext( ) {}
+    protected abstract void setOutBuffer(  );*/
 }

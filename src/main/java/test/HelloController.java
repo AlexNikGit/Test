@@ -11,14 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import test.view.BaseWebView;
+import test.view.WebView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,7 +42,8 @@ public class HelloController {
 
 		String srcFile_1 = "wpContent/ctxHeader.xml";
 		String srcFilePath_1 = "/mnt/data/Develop/AppData/RES" + File.separator + srcFile_1;
-		Source model_1 = new StreamSource(new File(srcFilePath_1));
+		//Source model_1 = new StreamSource(new File(srcFilePath_1));
+		Source model_1 = new StreamSource(new InputStreamReader(new FileInputStream( new File(srcFilePath_1) ),"UTF-8") );
 		modelMap.put("ctxHeader", model_1);
 
 
@@ -75,11 +75,16 @@ public class HelloController {
 		return new HttpEntity<byte[]>(image, headers);
 	}
 
-	@RequestMapping(value="/html/*")
+	@RequestMapping(value="/html/*", produces = "text/plain; charset=utf-8")
 	@ResponseBody
-	public String genHTML( ) {
-		private BaseWebView wvProc;
+	public String genHTML( HttpServletRequest request, HttpServletResponse response ) {
+		WebView wvProc;
+		StringBuffer buf = new StringBuffer( "Выходное значение:   " );
 
-		return "FuckOUT";
+		wvProc = new BaseWebView( );
+		wvProc.init();
+		wvProc.getHTMLSkeleton(request.getRequestURI(), buf);
+
+		return buf.toString( );
 	}
 }

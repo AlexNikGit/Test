@@ -1,12 +1,13 @@
 package test;
 
-import org.springframework.web.servlet.view.xslt.XsltView;
-import org.springframework.core.io.Resource;
 import org.springframework.context.ApplicationContextException;
+import org.springframework.core.io.Resource;
+import org.springframework.web.servlet.view.xslt.XsltView;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class XSLTGenView extends XsltView {
     @Override
@@ -34,7 +35,9 @@ public class XSLTGenView extends XsltView {
             //Resource resource = getApplicationContext().getResource( url );
 
             System.out.println( "Получен ресурс представления:   [ " + resource + " ]" );
-            return new StreamSource(resource.getInputStream(), resource.getURI().toASCIIString());
+            //return new StreamSource(resource.getInputStream(), resource.getURI().toASCIIString());
+            return new StreamSource(new InputStreamReader(resource.getInputStream(),"UTF-8"), resource.getURI().toASCIIString( ) );
+
         } catch (IOException ex) {
             throw new ApplicationContextException("Can't load XSLT stylesheet from '" + url + "'", ex);
         }

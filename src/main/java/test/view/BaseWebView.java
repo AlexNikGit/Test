@@ -20,8 +20,14 @@ public class BaseWebView implements WebView {
     @Autowired
     private ApplicationContext applicationContext;
 
-    public BaseWebView( ) {
-        viewGenEx = applicationContext.getBean("ViewGenEx", ViewGenEx.class);
+    public void init( ) {
+        viewGenEx = new ViewGenEx( );       // Заменить на getBean("ViewGenEx", ViewGenEx.class)
+        viewGenEx.init( );
+
+    }
+
+    public void getHTMLSkeleton( String url, StringBuffer out ) {
+        viewGenEx.genHTML( url, out);
     }
 
 }

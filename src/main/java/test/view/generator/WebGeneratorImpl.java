@@ -5,5 +5,5 @@ package test.view.generator;
  *  и подключаться при помощи Bean
  */
 public abstract class WebGeneratorImpl implements WebGenerator {
-    public abstract void generate( );
+    public abstract void generate( String url, StringBuffer out );
 }

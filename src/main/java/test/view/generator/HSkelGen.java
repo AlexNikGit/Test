@@ -4,6 +4,7 @@ import net.sf.saxon.s9api.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
+import test.view.generator.xslt.InputURIResolver;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
@@ -30,18 +31,20 @@ public class HSkelGen extends WebGeneratorImpl {
 // ... there is some more setting up the xmlReader here ...
             InputStream xsltStream = new FileInputStream( new File( xslFilePath ) );
             InputStream inputStream = new FileInputStream( new File( srcFilePath ) );
-            InputSource xsltIS = new InputSource(xsltStream);
-            xsltIS.setSystemId(xslFilePath);
-            InputSource inputIS = new InputSource(inputStream);
-            inputIS.setSystemId(srcFilePath);
-            Source xsltSource = new SAXSource(xmlReader, xsltIS );
-            Source inputSource = new SAXSource(xmlReader, inputIS);
+
+            /* задание директории в которой производится поиск включаемых (include/import) XSL-файлов.
+             * ЗАМЕНЕНО на использование собственного обработчика URIResolver! */
+            // InputSource xsltIS = new InputSource(xsltStream);
+            // xsltIS.setSystemId("/mnt/data/Develop/AppData/RES/");
+            Source xsltSource = new SAXSource( xmlReader, new InputSource(xsltStream) );
+            Source inputSource = new SAXSource( xmlReader, new InputSource(inputStream) );
 
 
 // initialize transformation configuration
             Processor processor = new Processor(false);
             XdmNode input = processor.newDocumentBuilder().build(inputSource);
             XsltCompiler compiler = processor.newXsltCompiler();
+            compiler.setURIResolver(new InputURIResolver( ));
             //compiler.setErrorListener(this);
             XsltExecutable executable = compiler.compile(xsltSource);
             Serializer serializer = new Serializer();

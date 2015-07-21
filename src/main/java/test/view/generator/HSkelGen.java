@@ -25,8 +25,11 @@ public class HSkelGen extends WebGeneratorImpl {
         String xslFilePath = "/mnt/data/Develop/AppData/RES/stHome.xslt";
         String srcFilePath = "/mnt/data/Develop/AppData/RES/wpContent/ctxHeader.xml";
         OutputStream htmlOut = new ByteArrayOutputStream( );
-        try
-        {
+
+        /* Проверить последовательность использования компонентов Saxon для осуществления XSLT преобразований
+         * и привести в соответствие с документацией
+         * http://www.saxonica.com/documentation/#!using-xsl/embedding/s9api-transformation */
+        try {
             XMLReader xmlReader = XMLReaderFactory.createXMLReader();
 // ... there is some more setting up the xmlReader here ...
             InputStream xsltStream = new FileInputStream( new File( xslFilePath ) );

@@ -37,10 +37,7 @@ public class InputURIResolver implements URIResolver {
 		
 		String contextPath = "/mnt/data/Develop/AppData/RES";
 		StringBuffer pathTemplate = new StringBuffer( contextPath );
-		System.out.println( "Файл зависимостей:   " + pathTemplate.toString( ) );
-		pathTemplate.append( File.separator );
-		System.out.println( "Файл зависимостей:   " + pathTemplate.toString( ) );
-		pathTemplate.append( href );
+		pathTemplate.append( File.separator + href );
 		System.out.println( "Файл зависимостей:   " + pathTemplate.toString( ) );
 		File xsltTemplateFile = new File( pathTemplate.toString( ) );
 		if( xsltTemplateFile.exists( ) ) return new StreamSource( xsltTemplateFile );

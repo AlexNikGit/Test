@@ -50,7 +50,7 @@ public class HSkelGen extends WebGeneratorImpl {
             compiler.setURIResolver(new InputURIResolver( ));
             //compiler.setErrorListener(this);
             XsltExecutable executable = compiler.compile(xsltSource);
-            Serializer serializer = new Serializer();
+            Serializer serializer = new Serializer();       // с версии 9.6 объект Serializer должен всегда создаваться, используя один из newSerializer-методов класса Processor.
             /*serializer.setOutputProperty(Serializer.Property.METHOD, "html");
             serializer.setOutputProperty(Serializer.Property.ENCODING, "UTF-8");
             serial.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, "yes");

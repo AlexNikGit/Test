@@ -8,6 +8,7 @@ import test.view.generator.xslt.InputURIResolver;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 
 /** HTML Skeleton (structure) Generator
@@ -69,7 +70,51 @@ public class HSkelGen extends WebGeneratorImpl {
         }
 
         out.append( htmlOut.toString( ) );
-        //out.append( "FuckOUT" );
         System.out.println( "HTML-страница сгенерирована" );
+
+
+        try {
+            Processor proc = new Processor(false);
+            XsltCompiler comp = proc.newXsltCompiler();
+            XsltExecutable templates1 = comp.compile(new StreamSource(new File("data/books.xsl")));
+            XdmNode source = proc.newDocumentBuilder().build(new StreamSource(new File("data/books.xml")));
+
+
+            Serializer output = new Serializer();
+            output.setOutputProperty(Serializer.Property.METHOD, "html");
+            output.setOutputProperty(Serializer.Property.INDENT, "yes");
+            output.setOutputFile(new File("data/books.html"));
+            XsltTransformer trans1 = templates1.load();
+            trans1.setInitialContextNode(source);
+
+            String stylesheet2 =
+                    "<xsl:transform version='2.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>" +
+                        "<xsl:template match='/'>" +
+                            "<xsl:for-each select=\"//ul | //ol\">" +
+                                "<ul>" +
+                                "<xsl:for-each select=\"li\">" +
+                                    "<li>" +
+                                    "<xsl:value-of select=\"current()\"/>" +    // "current()" аналогично "." для <xsl:value-of>, использутся в <xsl:apply-templates>
+                                     "</li>" +
+                                "</xsl:for-each>" +
+                                "</ul>" +
+                            "</xsl:for-each>" +
+                        "</xsl:template>" +
+                    "</xsl:transform>";
+            XsltExecutable templates2 = comp.compile(new StreamSource(new StringReader(stylesheet2)));
+            XsltTransformer trans2 = templates2.load();
+            XdmDestination resultTree = new XdmDestination();
+            trans2.setDestination(resultTree);
+            trans2.setDestination(output);
+
+            trans1.setDestination(trans2);
+            //trans1.setDestination(output);
+            trans1.transform();
+
+
+            //System.out.println(resultTree.getXdmNode());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
